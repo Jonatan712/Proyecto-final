@@ -1,6 +1,28 @@
+"""
+Proyecto Final
+Simulador de Base de datos.
+El programa inicialmente tiene dos opciones de funcionamiento,
+la primera es para la adquisición de un vehiculo TESLA y la segunda
+es para crear una base de perfiles de los empleados de la empresa.
+"""
+'''biblioteca'''
 from __future__ import print_function
 from PIL import Image
+'''
+La función de estas librerias son abrir imagenes en ciertas parte
+del codigo, esto de una manera simple; estas se abren cuando ingreso
+a comprar algun modelo TESLA.
+'''
+
+'''================== funciones ========================='''
+
+
 def compra():
+    '''
+    Al aplicar esta función, se piden valores numericos para conocer el
+    vehiculo que    desea adquirir, y devuelve la funcion que corresponde
+    al modelo que selecciono.
+    '''
     print("Escriba 1 si quiere entrar a la pagina de compra del Model S: ")
     print("Escriba 2 si quiere entrar a la pagina de compra del Model X: ")
     print("Escriba 3 si quiere entrar a la pagina de compra del Model 3: ")
@@ -14,6 +36,11 @@ def compra():
 
 
 def datos_pago():
+    '''
+    Al usar esta función se solicitan diferentes datos de pago para poder
+    adquirir el auto que el usuario selecciono, esta entra al final de cada
+    personalización del vehiculo elegido.
+    '''
     datos_comprador = []
     nombre = str(input("Inserte nombre completo: "))
     nombre_mayusculas = nombre.upper()
@@ -23,7 +50,7 @@ def datos_pago():
     datos_comprador.append([tajeta_mayusculas])
     digitos = int(input("Inserte los 16 digitos de su tarjeta: "))
     datos_comprador.append([digitos])
-    fecha = (input("Inserte la fecha de vencimiento en este formato ( 00/00 ): "))
+    fecha = (input("Inserte fecha de vencimiento en este formato ( 00/00 ): "))
     datos_comprador.append([fecha])
     datos_seguridad = int(input("Inserte los 4 digitos de seguridad: "))
     datos_comprador.append([datos_seguridad])
@@ -36,7 +63,9 @@ def datos_pago():
         print("4. Fecha de vencimiento: ", datos_comprador[3])
         print("5. Numero de seguridad: ", datos_comprador[4])
         print()
-        información = int(input("Escriba '1' =info. correcta, '2' =info. incorrecta: "))
+        print("Escriba '1' si la informacion es correcta")
+        print("Escriba '2' si la informacion es incorrecta")
+        información = int(input())
         if (información == 1):
             print()
             print("Dirijase a la siguiente pagina para finalizar")
@@ -44,260 +73,282 @@ def datos_pago():
             print("https://www.tesla.com/es_mx")
             break
         if (información == 2):
-            modificacion = int(input("Inserte el numero de dato que quiere modificar: "))
+            modificacion = int(input("Inserte el numero de dato erroneo: "))
             modificacion -= 1
             correccion = input("Inserte la correcion del dato: ")
             if(modificacion == 0 or modificacion == 1):
                 correccion = correccion.upper()
             datos_comprador[modificacion] = correccion
-            
     return print(datos_comprador)
 
 
 def organigrama():
-    final = []
+    '''
+    Esta es la función que hace posible la produccion de un organigrama,
+    primero solicita los perfiles a agregar, llenas los perfiles, y al final
+    tienes la opcion de obtener el perfil de cualquier persona.
+    '''
+    perfiles = []
 
     numero = int(input("Inserte el numero de perfiles que registrara: "))
-    q = 0
-    w = 0
+    primer_valor_matriz = 0
+    segundo_valor_matriz = 0
     acumulador = 0
     number = 2
     while acumulador < numero:
-        a = str(input("Inserte nombre completo: "))
-        b = int(input("Edad: "))
-        c = str(input("Sexo: "))
-        d = str(input("Estado civil: "))
-        e = str(input("Inserte cargo en la empresa: "))
-        f = str(input("Nacionalidad: "))
-        g = int(input("Numero de Contacto: "))
+        nombre = str(input("Inserte nombre completo: "))
+        edad = int(input("Edad: "))
+        sexo = str(input("Sexo: "))
+        est_civ = str(input("Estado civil: "))
+        cargo = str(input("Inserte cargo en la empresa: "))
+        nacio = str(input("Nacionalidad: "))
+        numero = int(input("Numero de Contacto: "))
         print()
         if(number <= numero):
             print("Inserte la informacion del perfil número", number)
 
-        persona = [a, b, c, d, e, f, g]
-        final.insert([q][w], persona)
+        persona = [nombre, edad, sexo, est_civ, cargo, nacio, numero]
+        perfiles.insert([primer_valor_matriz][segundo_valor_matriz], persona)
         acumulador = acumulador + 1
         number += 1
-    print(final)
-    m = 1
-    s = 0
-    g = 1
-    while m <= numero:
-
-        print("Escriba", g, "si usted quiere la informacion de", final[s][0])
-        s += 1
-        g += 1
-        m += 1
-    p = 1
-    k = int(input())
-    h = 0
-    f = 0
+    print(perfiles)
+    contador = 1
+    val_mat = 0
+    acum_dato = 1
+    texto = ("si usted quiere la información de")
+    while contador <= numero:
+        print("Escriba", acum_dato, texto, perfiles[val_mat][0])
+        val_mat += 1
+        acum_dato += 1
+        contador += 1
+    contador = 1
+    perfil_solicitado = int(input())
+    uno_val_mat = 0
+    seg_val_mat = 0
     while True:
-        if(k == p):
-            print("Nombre: ", final[h][f])
-            f += 1
-            print("Edad: ", final[h][f])
-            f += 1
-            print("Sexo: ", final[h][f])
-            f += 1
-            print("Estado civil: ", final[h][f])
-            f += 1
-            print("Cargo en la empresa: ", final[h][f])
-            f += 1
-            print("Nacionalidad: ", final[h][f])
-            f += 1
-            print("Numero de contacto: ", final[h][f])
+        if(perfil_solicitado == contador):
+            print("Nombre: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Edad: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Sexo: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Estado civil: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Cargo en la empresa: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Nacionalidad: ", perfiles[uno_val_mat][seg_val_mat])
+            seg_val_mat += 1
+            print("Numero de contacto: ", perfiles[uno_val_mat][seg_val_mat])
             break
         else:
-            p += 1
-            h += 1
+            contador += 1
+            uno_val_mat += 1
 
 
 def compramodels():
-    im = Image.open("s.jpeg")
-    box = (500,300,2400,1500)
-    area_recortada = im.crop(box)
+    '''
+    El objetivo de esta función es el poder tener un servio personalizado
+    al adquirir un vehiculo (Tesla model S), además de que al incio coloca
+    la imagen del vehiculo. La personalización cubre datos como el color,
+    versión,etc.
+    '''
+    imagen = Image.open("s.jpeg")
+    box = (500, 300, 2400, 1500)
+    area_recortada = imagen.crop(box)
     area_recortada.show()
-    a = open("models.txt", "r")
+    imprimir_texto = open("models.txt", "r")
 
-    print(a.read())
+    print(imprimir_texto.read())
 
-    a.close()
+    imprimir_texto.close()
 
-    costofinal = 0
+    costo_final = 0
 
-    costobase = str(input("Inserte la versión que desea adquirir: "))
-
-    if(costobase == "plaid" or costobase == "Plaid"):
-        costofinal += 3099900
-    elif(costobase == "performance" or costobase == "Performance"):
-        costofinal += 2123900
-    elif(costobase == "Long Range Plus" or costobase == "Long range plus"):
-        costofinal += 1823900
-    costocolor = str(input("Inserte color, Blanco|Negro|Gris|Azul|Rojo: "))
-    if(costocolor == "Blanco" or costocolor == "blanco"):
-        costofinal += 0
-    elif(costocolor != "Blanco"):
-        costofinal += 32500
-    print("Inserte '1' si usted quiere los rines Tempest de 19")
-    print("Inserte '2' si quiere agregar Sonic Carbon Twin Turbine de 21")
+    costo_base = str(input("Inserte la versión que desea adquirir: "))
+    costo_base_mayusculas = costo_base.upper()
+    if(costo_base_mayusculas == "PLAID"):
+        costo_final += 3099900
+    elif(costo_base_mayusculas == "PERFORMANCE"):
+        costo_final += 2123900
+    elif(costo_base_mayusculas == "LONG RANGE PLUS"):
+        costo_final += 1823900
+    costo_color = str(input("Inserte color, Blanco|Negro|Gris|Azul|Rojo: "))
+    costo_color_mayusculas = costo_color.upper()
+    if(costo_color_mayusculas == "BLANCO"):
+        costo_final += 0
+    elif(costo_color_mayusculas != "BLANCO"):
+        costo_final += 32500
+    print('''Inserte '1' si usted quiere los rines Tempest de 19"''')
+    print('''Inserte '2' si quiere agregar Sonic Carbon Twin Turbine de 21"''')
     costorines = int(input())
-
     if(costorines == 1):
-        costofinal += 0
+        costo_final += 0
     elif (costorines == 2):
-        costofinal += 97000
+        costo_final += 97000
 
-    costointeriores = str(input("Inserte color interior negro blanco beige: "))
-
-    if(costocolor == "Negro" or costocolor == "negro"):
-        costofinal += 0
-    elif(costocolor != "Negro"):
-        costofinal += 32400
+    costo_interiores = str(input("Inserte interior |Negro|Blanco|Beige|: "))
+    costo_interiores_mayusculas = costo_interiores.upper()
+    if(costo_interiores_mayusculas == "NEGRO"):
+        costo_final += 0
+    elif(costo_interiores_mayusculas != "NEGRO"):
+        costo_final += 32400
     print("Inserte 'si', si usted quiere agregar el servicio de autopilot: ")
     print("Inserte 'no', si usted no lo quiere agregar: ")
     autopilot = str(input())
-
-    if(costocolor == "si" or costocolor == "Si"):
-        costofinal += 177200
-    elif(costocolor != "No" or costocolor != "no"):
-        costofinal += 0
-    print("El costo final de su vehiculo sera de: ", costofinal)
+    autopilot_mayusculas = autopilot.upper()
+    if(autopilot_mayusculas == "SI"):
+        costo_final += 177200
+    elif(autopilot_mayusculas == "NO"):
+        costo_final += 0
+    print("El costo final de su vehiculo sera de: ", costo_final)
     print()
     print("Inserte '1' si usted quiere adquirir el vehiculo")
     print("inserte '2' si no quiere realizar la compra")
-    p = int(input())
-    if(p == 1):
-        return print(datospago())
-    elif(p != 1):
+    sugerencia = int(input())
+    if(sugerencia == 1):
+        return print(datos_pago())
+    elif(sugerencia != 1):
         return print("Gracias por usar el modelo personalizado de TESLA")
 
 
 def compramodelx():
-    im = Image.open("x.jpeg")
-    box = (500,200,2400,1400)
-    area_recortada = im.crop(box)
+    '''
+    El objetivo de esta función es el poder tener un servio personalizado
+    al adquirir un vehiculo (Tesla model X), además de que al incio coloca
+    la imagen del vehiculo. La personalización cubre datos como el color,
+    versión,etc.
+    '''
+    imagen = Image.open("x.jpeg")
+    box = (500, 200, 2400, 1400)
+    area_recortada = imagen.crop(box)
     area_recortada.show()
-    b = open("modelx.txt", "r")
+    texto = open("modelx.txt", "r")
 
-    print(b.read())
+    print(texto.read())
 
-    b.close()
+    texto.close()
 
-    costofinal = 0
+    costo_final = 0
 
-    costobase = str(input("Inserte la versión que desea adquirir: "))
-    if(costobase == "Long Range Plus" or costobase == "Long range plus"):
-        costofinal += 1998900
-    elif(costobase == "performance" or costobase == "Performance"):
-        costofinal += 2298900
-    costocolor = str(input("Inserte color |Blanco|Negro|Gris|Azul|Rojo: "))
-
-    if(costocolor == "Blanco" or costocolor == "blanco"):
-        costofinal += 0
-    elif(costocolor != "Blanco"):
-        costofinal += 32400
+    costo_base = str(input("Inserte la versión que desea adquirir: "))
+    costo_base_mayusculas = costo_base.upper
+    if(costo_base_mayusculas == "LONG RANGE PLUS"):
+        costo_final += 1998900
+    elif(costo_base_mayusculas == "PERFORMANCE"):
+        costo_final += 2298900
+    costo_color = str(input("Inserte color |Blanco|Negro|Gris|Azul|Rojo: "))
+    costo_color_mayusculas = costo_color.upper()
+    if(costo_color_mayusculas == "BLANCO"):
+        costo_final += 0
+    elif(costo_color_mayusculas != "BLANCO"):
+        costo_final += 32400
     print("Inserte '1' si usted quiere los rines Silver de 20:")
     print ("Inserte '2' si usted quiere los rines negro onyx de 22:")
-    costorines = int(input())
-
+    costo_rines = int(input())
     if(costorines == 1):
-        costofinal += 0
+        costo_final += 0
     elif (costorines == 2):
-        costofinal += 119000
-    costoasientos = int(input("Ingrese numero de asientos que desea /5/6/7: "))
-    if(costoasientos == 5):
-        costofinal += 0
-    if(costoasientos == 6):
-        costofinal += 140000
-    if(costoasientos == 7):
-        costofinal += 76000
+        costo_final += 119000
+    costo_asientos = int(input("Ingrese numero de asientos /5/6/7: "))
+    if(costo_asientos == 5):
+        costo_final += 0
+    if(costo_asientos == 6):
+        costo_final += 140000
+    if(costo_asientos == 7):
+        costo_final += 76000
 
-    costointeriores = str(input("Inserte color interior /negro/blanco/beige:"))
-
-    if(costocolor == "Negro" or costocolor == "negro"):
-        costofinal += 0
-    elif(costocolor != "Negro"):
-        costofinal += 32400
+    costo_interiores = str(input("Inserte interior |Negro|Blanco|Beige|:"))
+    costo_interiores_mayusculas = costo_interiores.upper
+    if(costo_interiores_mayusculas == "NEGRO"):
+        costo_final += 0
+    elif(costo_interiores_mayusculas != "NEGRO"):
+        costo_final += 32400
     print("Inserte 'si', si quiere agregar el servicio de autopilot")
     print("Inserte'no', si usted no lo quiere agregar: ")
     autopilot = str(input())
-
-    if(costocolor == "si" or costocolor == "Si"):
-        costofinal += 177200
-    elif(costocolor != "No" or costocolor != "no"):
-        costofinal += 0
-    print("El costo final de su vehiculo sera de: ", costofinal)
+    autopilot_mayusculas = autopilot.upper
+    if(autopilot_mayusculas == "SI"):
+        costo_final += 177200
+    elif(autopilot_mayusculas == "NO"):
+        costo_final += 0
+    print("El costo final de su vehiculo sera de: ", costo_final)
     print()
     print("Inserte '1' si usted quiere adquirir el vehiculo")
     print("Inserte '2' si no quiere realizar la compra")
-    p = int(input())
-    if(p == 1):
-        return print(datospago())
-    elif(p != 1):
+    sugerencia = int(input())
+    if(sugerencia == 1):
+        return print(datos_pago())
+    elif(sugerencia != 1):
         return print("Gracias por usar el modelo personalizado de TESLA")
 
 
 def compramodel3():
+    '''
+    El objetivo de esta función es el poder tener un servio personalizado
+    al adquirir un vehiculo (Tesla model 3), además de que al incio
+    coloca la imagen del vehiculo. La personalización cubre datos como
+    el color, versión,etc.
+    '''
     im = Image.open("3.jpg")
-    box = (350,300,1550,1000)
+    box = (350, 300, 1550, 1000)
     area_recortada = im.crop(box)
     area_recortada.show()
-    c = open("model3.txt", "r")
+    texto = open("model3.txt", "r")
 
-    print(c.read())
+    print(texto.read())
 
-    c.close()
+    texto.close()
 
-    costofinal = 0
-
-
-    costofinal = 0
-
-    costob = str(input("Inserte la versión que desea adquirir: "))
-    costobase = costob.lower()
-    if(costobase == "autonomia estandar plus"):
-        costofinal += 1049900
-    elif(costobase == "Autonomía Mayor" or costobase == "autonomía mayor"):
-        costofinal += 1249900
-    elif(costobase == "Performance" or costobase == "performance"):
-        costofinal += 1349900
-    costocolor = str(input("Inserte el color,Blanco,Negro,Gris,Azul o Rojo: "))
-
-    if(costocolor == "Blanco" or costocolor == "blanco"):
-        costofinal += 0
-    elif(costocolor != "Blanco"):
-        costofinal += 21600
-    costointeriores = str(input("Inserte color interiores,negro o blanco: "))
-
-    if(costocolor == "Negro" or costocolor == "negro"):
-        costofinal += 0
-    elif(costocolor != "Negro"):
-        costofinal += 21600
+    costo_final = 0
+    costo_base = str(input("Inserte la versión que desea adquirir: "))
+    costo_base_mayusculas = costo_base.upper()
+    if(costo_base_mayusculas == "AUTONOMIA ESTANDAR PLUS"):
+        costo_final += 1049900
+    elif(costo_base_mayusculas == "AUTONOMIA MAYOR"):
+        costo_final += 1249900
+    elif(costo_base_mayusculas == "PERFORMANCE" or costobase == "performance"):
+        costo_final += 1349900
+    costo_color = str(input("Inserte color |Blanco|Negro|Gris|Azul|Rojo: "))
+    costo_color_mayusculas = costo_color.upper()
+    if(costo_color_mayusculas == "BLANCO"):
+        costo_final += 0
+    elif(costo_color_mayusculas != "BLANCO"):
+        costo_final += 21600
+    costo_interiores = str(input("Inserte color interiores |Negro|Blanco|: "))
+    costo_interiores_mayusculas = costo_interiores.upper()
+    if(costo_interiores_mayusculas == "NEGRO"):
+        costo_final += 0
+    elif(costo_interiores_mayusculas != "NEGRO"):
+        costo_final += 21600
     print("Inserte 'si', si usted quiere agregar el servicio de autopilot: ")
     print("Inserte 'no', si usted no lo quiere agregar: ")
     autopilot = str(input())
-    if(costocolor == "si" or costocolor == "Si"):
-        costofinal += 177200
-    elif(costocolor != "No" or costocolor != "no"):
-        costofinal += 0
-    print("El costo final de su vehiculo sera de: ", costofinal)
+    autopilot_mayusculas = autopilot.upper()
+    if(autopilot_mayusculas == "SI"):
+        costo_final += 177200
+    elif(autopilot_mayusculas == "NO"):
+        costo_final += 0
+    print("El costo final de su vehiculo sera de: ", costo_final)
     print()
     print("Inserte '1' si usted quiere proceder con la compra")
     print("Inserte '2' si no quiere realizar la compra")
-    p = int(input())
-    if(p == 1):
-        return print(datospago())
-    elif(p != 1):
+    sugerencia = int(input())
+    if(sugerencia == 1):
+        return print(datos_pago())
+    elif(sugerencia != 1):
         return print("Gracias por usar el modelo personalizado de TESLA")
+'''
+========  parte principal del programa =========
+Esta es la parte inicial del codigo, en base a estas dos condiciones
+se puede accesar a cualquier parte del codigo, esto depende de lo que
+busque el usuario o empleado.
+'''
+
 print("Escriba 1 si quiere adquirir un vehiculo Tesla: ")
 print("Escriba 2 si quiere entrar a la base de perfiles de la empresa: ")
-a = int(input())
-if(a == 1):
+direccion_usuario = int(input())
+if(direccion_usuario == 1):
     print(compra())
-elif(a == 2):
+elif(direccion_usuario == 2):
     print(organigrama())
-    
-
-
-
