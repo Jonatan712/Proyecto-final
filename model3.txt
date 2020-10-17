@@ -1,0 +1,17 @@
+Bienvenido a la pagina de compra del Tesla Model 3
+Inicialmente existen 3 versiones para este modelo
+
+Version 'Autonomía Estándar Plus'
+Esta version tiene 402 km de autonomía
+Velocidad maxima de 225 km/h
+Aceleracion de 0-100 de 5.6 s
+
+Version 'Autonomía Mayor'
+Esta version tiene 518 km de autonomía
+Velocidad maxima de 233 km/h
+Aceleracion de 0-100 de 4.6 s
+
+Version 'Performance'
+Esta version tiene 481 km de autonomía
+Velocidad maxima de 261 km/h
+Aceleracion de 0-100 de 3.4 s

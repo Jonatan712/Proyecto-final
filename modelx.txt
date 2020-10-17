@@ -1,0 +1,13 @@
+Bienvenido a la pagina de compra del Tesla Model X")
+Inicialmente existen 2 versiones para este modelo")
+
+Version 'Long Range Plus'
+Esta version tiene 564 km de autonomía
+Velocidad maxima de 250 km/h
+Aceleracion de 0-100 de 4.6 s
+
+Version 'Performance'
+Esta version tiene 491 km de autonomía
+Velocidad maxima de 261 km/h
+Aceleracion de 0-100 de 2.8 s
+

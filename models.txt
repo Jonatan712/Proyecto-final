@@ -1,0 +1,17 @@
+Bienvenido a la pagina de compra del Tesla Model S
+Inicialmente existen 3 versiones para este modelo
+
+Version 'Long Range Plus'
+Esta version tiene 647 km de autonomía
+Velocidad maxima de 250 km/h
+Aceleracion de 0-100 de 3.8 s.
+
+"Version 'Performance'
+Esta version tiene 560 km de autonomía
+Velocidad maxima de 261 km/h
+Aceleracion de 0-100 de 2.5 s.
+
+Version 'Plaid'
+Esta version tiene +840 km de autonomía
+Velocidad maxima de 320 km/h
+Aceleracion de 0-100 de <2.1 s.
