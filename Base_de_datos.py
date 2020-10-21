@@ -10,8 +10,8 @@ from __future__ import print_function
 from PIL import Image
 '''
 La función de estas librerias son abrir imagenes en ciertas parte
-del codigo, esto de una manera simple; estas se abren cuando ingreso
-a comprar algun modelo TESLA.
+del codigo, esto de una manera simple; estas se abren cuando el 
+usuario ingresa a comprar algun modelo TESLA.
 '''
 
 '''================== funciones ==================='''
