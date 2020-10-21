@@ -10,16 +10,17 @@ de las exportaciones totales.
 Por consiguiente tiene una gran importancia en la Economía, mi proyecto consiste en que a base de logaritmos poder lograr calculos de precios en toda la industria 
 para lograr un aprovechamiento del 100%, esto engloba, donde producir, que producir, con que producir y donde venderlo, quiero englobar todos los datos de los 
 autos electricos para realizar un analisis completo del producto.
-
-Todos los aspectos a a 
+Los aspectos a ver son:
 
 $ Perfiles para clientes con necesiades especiales
 $ Base de datos sobre el organigrama empresarial
-$ 
-$ 
-$ 
 
 Con esto quiero lograr un analisis poniendome en el lugar de la cabecera de alguna empresa que quiere lograr impactar rotundamente en el país y a nivel mundial, y para esto es necesario conocer todos los aspectos ya mencionados.
+
+En el codigo se utilizaron 3 recursos graficos:
+1.TESLA(2020).Base_de_datos.py[codigo_de_programación].https://www.tesla.com/es_mx/modelx
+2.TESLA(2020).Base_de_datos.py[codigo_de_programación].https://www.tesla.com/es_mx/models
+3.TESLA(2020).Base_de_datos.py[codigo_de_programación].https://www.tesla.com/es_mx/model3
 
 
 
